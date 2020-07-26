@@ -1,10 +1,17 @@
 const program = require('commander');
 
 program
-  .option('-d, --debug', 'output extra debugging')
-  .option('-s, --small', 'small pizza size')
-  .option('-p, --pizza-type <type>', 'flavour of pizza');
+  .command('add')
+  .description('add a task')
+  .action(command => {
+    console.log(command.args.join(' '));
+  });
+
+program
+  .command('clear')
+  .description('clear all tasks')
+  .action(() => {
+    console.log('clear fn');
+  });
 
 program.parse(process.argv);
-
-console.log(program.debug);
