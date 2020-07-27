@@ -1,17 +1,37 @@
-const program = require('commander');
+const homedir = require('os').homedir();
+const home = process.env.HOME || homedir;
+const p = require('path');
+const fs = require('fs');
+const dbPath = p.join(home, '.todo');
 
-program
-  .command('add')
-  .description('add a task')
-  .action(command => {
-    console.log(command.args.join(' '));
+module.exports.add = title => {
+  fs.readFile(dbPath, { flag: 'a+' }, (error, data) => {
+    if (error) {
+      console.log(error);
+    } else {
+      let list;
+      try {
+        list = JSON.parse(data.toString());
+      } catch (error2) {
+        list = [];
+      }
+      list.push({
+        title,
+        done: false
+      });
+      fs.writeFile(dbPath, JSON.stringify(list) + '\n', error3 => {
+        if (error3) {
+          console.log(error3);
+        }
+      });
+    }
   });
+};
 
-program
-  .command('clear')
-  .description('clear all tasks')
-  .action(() => {
-    console.log('clear fn');
+module.exports.clear = () => {
+  fs.writeFile(dbPath, '[]', error => {
+    if (error) {
+      console.log(error);
+    }
   });
-
-program.parse(process.argv);
+};
