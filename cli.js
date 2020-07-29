@@ -7,6 +7,7 @@ program
   .action(command => {
     const words = command.args.join(' ');
     api.add(words);
+    console.log('添加成功');
   });
 
 program
@@ -14,6 +15,7 @@ program
   .description('clear all tasks')
   .action(() => {
     api.clear();
+    console.log("清除成功")
   });
 
 program.parse(process.argv);
