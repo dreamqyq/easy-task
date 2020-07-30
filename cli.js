@@ -23,7 +23,7 @@ program
     api
       .clear()
       .then(() => {
-        console.log('清楚成功');
+        console.log('清除成功');
       })
       .catch(() => {
         console.log('清除失败');
