@@ -1,4 +1,4 @@
-const program = require('commander');
+const { program } = require('commander');
 const api = require('./index.js');
 
 program
@@ -6,16 +6,33 @@ program
   .description('add a task')
   .action(command => {
     const words = command.args.join(' ');
-    api.add(words);
-    console.log('添加成功');
+    api
+      .add(words)
+      .then(() => {
+        console.log('添加成功');
+      })
+      .catch(() => {
+        console.log('添加失败');
+      });
   });
 
 program
   .command('clear')
   .description('clear all tasks')
   .action(() => {
-    api.clear();
-    console.log("清除成功")
+    api
+      .clear()
+      .then(() => {
+        console.log('清楚成功');
+      })
+      .catch(() => {
+        console.log('清除失败');
+      });
   });
 
-program.parse(process.argv);
+if (process.argv.length === 2) {
+  // 说明用户直接运行 node cli.js
+  void api.showAll();
+} else {
+  program.parse(process.argv);
+}
