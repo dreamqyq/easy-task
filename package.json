@@ -1,6 +1,12 @@
 {
-  "name": "node-todolist",
+  "name": "easy-task",
   "version": "0.0.1",
+  "bin": {
+    "task": "cli.js"
+  },
+  "files": [
+    "*.js"
+  ],
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
