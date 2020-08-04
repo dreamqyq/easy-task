@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const { program } = require("commander");
 const api = require("./index.js");
+program.version(require('./package.json').version)
 
 program
   .command("add")

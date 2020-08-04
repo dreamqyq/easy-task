@@ -1,8 +1,8 @@
 # easy-task
 
-基于 node 实现的命令行任务系统。
+Command line task system based on node.
 
-## 安装
+## install
 
 `npm install -g easy-task` 
 
@@ -10,6 +10,6 @@ or
 
 `yarn global add easy-task`
 
-## 启动
+## start
 
 `task`

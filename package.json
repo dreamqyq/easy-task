@@ -1,14 +1,29 @@
 {
   "name": "easy-task",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "description": "Command line task system based on node",
   "bin": {
     "task": "cli.js"
   },
   "files": [
     "*.js"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreamqyq/easy-task.git"
+  },
+  "keywords": [
+    "node",
+    "todo list",
+    "command line"
+  ],
   "main": "index.js",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dreamqyq/easy-task/issues",
+    "email": "qyqdream@gmail.com"
+  },
+  "homepage": "https://github.com/dreamqyq/easy-task#readme",
   "dependencies": {
     "commander": "^6.0.0",
     "inquirer": "^7.3.3"
