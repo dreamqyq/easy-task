@@ -11,10 +11,10 @@ program
     api
       .add(words)
       .then(() => {
-        console.log("添加成功");
+        console.log("add success!");
       })
       .catch(() => {
-        console.log("添加失败");
+        console.log("add failed, please try again!");
       });
   });
 
@@ -25,10 +25,10 @@ program
     api
       .clear()
       .then(() => {
-        console.log("清除成功");
+        console.log("clear success!");
       })
       .catch(() => {
-        console.log("清除失败");
+        console.log("clear failed, please try again!");
       });
   });
 
